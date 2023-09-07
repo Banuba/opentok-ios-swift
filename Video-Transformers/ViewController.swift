@@ -21,55 +21,7 @@ let kToken = ""
 let kWidgetHeight = 240
 let kWidgetWidth = 320
 
-class CustomTransformer: NSObject, OTCustomVideoTransformer {
-    func resizeImage(_ image: UIImage, to size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return resizedImage
-    }
-    
-    func transform(_ videoFrame: OTVideoFrame) {
-        if let image = UIImage(named: "Vonage_Logo.png") {
-            let yPlaneData = videoFrame.getPlaneBinaryData(0)
-            let videoWidth = Int(videoFrame.format?.imageWidth ?? 0)
-            let videoHeight = Int(videoFrame.format?.imageHeight ?? 0)
-            
-            // Calculate the desired size of the image
-            let desiredWidth = CGFloat(videoWidth) / 8 // Adjust this value as needed
-            let desiredHeight = image.size.height * (desiredWidth / image.size.width)
-            
-            // Resize the image to the desired size
-            if let resizedImage = resizeImage(image, to: CGSize(width: desiredWidth, height: desiredHeight)) {
-                let yPlane = yPlaneData
-                
-                // Create a CGContext from the Y plane
-                guard let context = CGContext(data: yPlane,
-                                              width: videoWidth,
-                                              height: videoHeight,
-                                              bitsPerComponent: 8,
-                                              bytesPerRow: videoWidth,
-                                              space: CGColorSpaceCreateDeviceGray(),
-                                              bitmapInfo: CGImageAlphaInfo.none.rawValue) else {
-                    return
-                }
-                
-                // Location of the image (in this case right bottom corner)
-                let x = CGFloat(videoWidth) * 4/5
-                let y = CGFloat(videoHeight) * 1/5
-                
-                // Draw the resized image on top of the Y plane
-                let rect = CGRect(x: x, y: y, width: desiredWidth, height: desiredHeight)
-                context.draw(resizedImage.cgImage!, in: rect)
-            }
-        }
-    }
-}
-
 class ViewController: UIViewController {
-    
-    var buttonVideoTransformerToggle: UIButton!
     
     lazy var session: OTSession = {
         return OTSession(apiKey: kApiKey, sessionId: kSessionId, delegate: self)!
@@ -123,21 +75,7 @@ class ViewController: UIViewController {
             pubView.frame = CGRect(x: 0, y: 0, width: kWidgetWidth, height: kWidgetHeight)
             view.addSubview(pubView)
         }
-        
-        // Configure toogle button
-        buttonVideoTransformerToggle = UIButton(type: .custom)
-        buttonVideoTransformerToggle.frame = CGRect(x: kWidgetWidth - 65, y: 50, width: 50, height: 25)
-        buttonVideoTransformerToggle.layer.cornerRadius = 5.0
-        self.view.addSubview(buttonVideoTransformerToggle)
-        self.view.bringSubviewToFront(buttonVideoTransformerToggle)
-        buttonVideoTransformerToggle.setTitle("set", for: .normal)
-        buttonVideoTransformerToggle.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        buttonVideoTransformerToggle.setTitleColor(.gray, for: .normal)
-        buttonVideoTransformerToggle.backgroundColor = .white
-        buttonVideoTransformerToggle.layer.borderWidth = 1.0
-        buttonVideoTransformerToggle.layer.borderColor = UIColor.gray.cgColor
-        buttonVideoTransformerToggle.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-
+        showTransformers()
     }
     
     /**
@@ -175,30 +113,21 @@ class ViewController: UIViewController {
         }
     }
     
-    let logoTransformer: CustomTransformer = CustomTransformer() // Create an instance of CustomTransformer
+    let logoTransformer = BanubaTransformer() // Create an instance of CustomTransformer
 
-    @objc func buttonTapped(_ sender: UIButton) {
-        if publisher.videoTransformers.isEmpty {
-            // Create background blur Vonage transformer
-            guard let backgroundBlur = OTVideoTransformer(name: "BackgroundBlur", properties: "{\"radius\":\"High\"}") else { return }
-            // Create custom transformer
-            guard let myCustomTransformer = OTVideoTransformer(name: "logo", transformer: logoTransformer)  else { return }
+    @objc func showTransformers() {
+        // Create background blur Vonage transformer
+        guard let backgroundBlur = OTVideoTransformer(name: "BackgroundBlur", properties: "{\"radius\":\"High\"}") else { return }
+        // Create custom transformer
+        guard let myCustomTransformer = OTVideoTransformer(name: "logo", transformer: logoTransformer)  else { return }
 
-            var myVideoTransformers = [OTVideoTransformer]()
+        var myVideoTransformers = [OTVideoTransformer]()
 
-            myVideoTransformers.append(backgroundBlur)
-            myVideoTransformers.append(myCustomTransformer)
+        myVideoTransformers.append(backgroundBlur)
+        myVideoTransformers.append(myCustomTransformer)
 
-            // Set video transformers to publisher video stream
-            publisher.videoTransformers = myVideoTransformers
-
-            buttonVideoTransformerToggle.setTitle("reset", for: .normal)
-        } else {
-            // Clear all transformers from video stream
-            publisher.videoTransformers = []
-
-            buttonVideoTransformerToggle.setTitle("set", for: .normal)
-        }
+        // Set video transformers to publisher video stream
+        publisher.videoTransformers = myVideoTransformers
     }
 }
 
