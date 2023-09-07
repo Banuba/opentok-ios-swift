@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9935FA449AF9CCD3929BCF9C /* Pods_Video_Transformers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB498E0FD555C53478AA986 /* Pods_Video_Transformers.framework */; };
 		A05375D71EB1633400645696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05375CF1EB1633400645696 /* AppDelegate.swift */; };
 		A05375D81EB1633400645696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05375D01EB1633400645696 /* Assets.xcassets */; };
 		A05375D91EB1633400645696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05375D11EB1633400645696 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		746E62F621FA7150B02F1724 /* Pods-Video-Transformers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Transformers.release.xcconfig"; path = "Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers.release.xcconfig"; sourceTree = "<group>"; };
 		A05375CF1EB1633400645696 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A05375D01EB1633400645696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A05375D21EB1633400645696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -23,6 +25,8 @@
 		A05375D51EB1633400645696 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A05375D61EB1633400645696 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADE6E7BD2A93B07300895674 /* Vonage_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vonage_Logo.png; path = "Video-Transformers/Vonage_Logo.png"; sourceTree = "<group>"; };
+		ECB498E0FD555C53478AA986 /* Pods_Video_Transformers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_Transformers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F305D55EB10DEE520880D18F /* Pods-Video-Transformers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Transformers.debug.xcconfig"; path = "Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers.debug.xcconfig"; sourceTree = "<group>"; };
 		F86C649A1D5C7C630081846D /* Video-Transformers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video-Transformers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,15 +35,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9935FA449AF9CCD3929BCF9C /* Pods_Video_Transformers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19BDF6AE2D67A2FDE4183491 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECB498E0FD555C53478AA986 /* Pods_Video_Transformers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		651BF1BD8407C44E924A3910 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				F305D55EB10DEE520880D18F /* Pods-Video-Transformers.debug.xcconfig */,
+				746E62F621FA7150B02F1724 /* Pods-Video-Transformers.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -64,6 +79,7 @@
 				A05375CE1EB1633400645696 /* Video-Transformers */,
 				F86C649B1D5C7C630081846D /* Products */,
 				651BF1BD8407C44E924A3910 /* Pods */,
+				19BDF6AE2D67A2FDE4183491 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F86C64AC1D5C7C630081846D /* Build configuration list for PBXNativeTarget "Video-Transformers" */;
 			buildPhases = (
+				1DA9D6B64CB5686C9AD49295 /* [CP] Check Pods Manifest.lock */,
 				F86C64961D5C7C630081846D /* Sources */,
 				F86C64971D5C7C630081846D /* Frameworks */,
 				F86C64981D5C7C630081846D /* Resources */,
+				ECFE1779A9CCBD06300F1BB4 /* [CP] Copy Pods Resources */,
+				1404D7A867F58E6E452B85BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +164,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1404D7A867F58E6E452B85BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/BNBSdkApi/BNBSdkApi.framework/BNBSdkApi",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/BNBSdkCore/BNBSdkCore.framework/BNBSdkCore",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BNBSdkApi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BNBSdkCore.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DA9D6B64CB5686C9AD49295 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Video-Transformers-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECFE1779A9CCBD06300F1BB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers-resources.sh",
+				"${PODS_ROOT}/BNBAcneEyebagsRemoval/bnb-resources",
+				"${PODS_ROOT}/BNBBackground/bnb-resources",
+				"${PODS_ROOT}/BNBBody/bnb-resources",
+				"${PODS_ROOT}/BNBEffectPlayer/bnb-resources",
+				"${PODS_ROOT}/BNBEyes/bnb-resources",
+				"${PODS_ROOT}/BNBFaceTracker/bnb-resources",
+				"${PODS_ROOT}/BNBFaceTrackerLite/bnb-resources",
+				"${PODS_ROOT}/BNBHair/bnb-resources",
+				"${PODS_ROOT}/BNBHands/bnb-resources",
+				"${PODS_ROOT}/BNBLips/bnb-resources",
+				"${PODS_ROOT}/BNBNeurobeautyMakeup/bnb-resources",
+				"${PODS_ROOT}/BNBOcclusion/bnb-resources",
+				"${PODS_ROOT}/BNBScripting/bnb-resources",
+				"${PODS_ROOT}/BNBSdkCore/bnb-resources",
+				"${PODS_ROOT}/BNBSkin/bnb-resources",
+				"${PODS_ROOT}/BNBWatch/bnb-resources",
+				"${PODS_ROOT}/BanubaSdk/bnb-resources",
+				"${PODS_ROOT}/OTXCFramework/OpenTok.xcframework/ios-arm64/OpenTok.framework/selfie_segmentation.tflite",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bnb-resources",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/selfie_segmentation.tflite",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F86C64961D5C7C630081846D /* Sources */ = {
@@ -284,6 +384,7 @@
 		};
 		F86C64AD1D5C7C630081846D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F305D55EB10DEE520880D18F /* Pods-Video-Transformers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -299,6 +400,7 @@
 		};
 		F86C64AE1D5C7C630081846D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 746E62F621FA7150B02F1724 /* Pods-Video-Transformers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
