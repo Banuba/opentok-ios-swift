@@ -18,8 +18,8 @@ let kSessionId = ""
 // Replace with your generated token
 let kToken = ""
 
-let kWidgetHeight = 240
-let kWidgetWidth = 320
+let kWidgetHeight = 320
+let kWidgetWidth = 240
 
 class ViewController: UIViewController {
     
