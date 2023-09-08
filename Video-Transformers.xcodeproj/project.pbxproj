@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1356755F2AA9FA890034AED6 /* BanubaTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356755E2AA9FA890034AED6 /* BanubaTransformer.swift */; };
+		135675612AAB2FC50034AED6 /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 135675602AAB2FC50034AED6 /* effects */; };
 		9935FA449AF9CCD3929BCF9C /* Pods_Video_Transformers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB498E0FD555C53478AA986 /* Pods_Video_Transformers.framework */; };
 		A05375D71EB1633400645696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05375CF1EB1633400645696 /* AppDelegate.swift */; };
 		A05375D81EB1633400645696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05375D01EB1633400645696 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1356755E2AA9FA890034AED6 /* BanubaTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanubaTransformer.swift; sourceTree = "<group>"; };
+		135675602AAB2FC50034AED6 /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
 		746E62F621FA7150B02F1724 /* Pods-Video-Transformers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Transformers.release.xcconfig"; path = "Target Support Files/Pods-Video-Transformers/Pods-Video-Transformers.release.xcconfig"; sourceTree = "<group>"; };
 		A05375CF1EB1633400645696 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A05375D01EB1633400645696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		A05375CE1EB1633400645696 /* Video-Transformers */ = {
 			isa = PBXGroup;
 			children = (
+				135675602AAB2FC50034AED6 /* effects */,
 				A05375CF1EB1633400645696 /* AppDelegate.swift */,
 				A05375D01EB1633400645696 /* Assets.xcassets */,
 				A05375D11EB1633400645696 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				A05375DA1EB1633400645696 /* Main.storyboard in Resources */,
 				A05375D81EB1633400645696 /* Assets.xcassets in Resources */,
 				A05375D91EB1633400645696 /* LaunchScreen.storyboard in Resources */,
+				135675612AAB2FC50034AED6 /* effects in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

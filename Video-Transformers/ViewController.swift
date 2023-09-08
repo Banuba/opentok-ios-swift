@@ -113,17 +113,15 @@ class ViewController: UIViewController {
         }
     }
     
-    let logoTransformer = BanubaTransformer() // Create an instance of CustomTransformer
+    let banubaTransformer = BanubaTransformer() // Create an instance of CustomTransformer
 
     @objc func showTransformers() {
-        // Create background blur Vonage transformer
-        guard let backgroundBlur = OTVideoTransformer(name: "BackgroundBlur", properties: "{\"radius\":\"High\"}") else { return }
+        banubaTransformer.loadEffect(name: "CubemapEverest")
         // Create custom transformer
-        guard let myCustomTransformer = OTVideoTransformer(name: "logo", transformer: logoTransformer)  else { return }
+        guard let myCustomTransformer = OTVideoTransformer(name: "banubaTransformer", transformer: banubaTransformer)  else { return }
 
         var myVideoTransformers = [OTVideoTransformer]()
 
-        myVideoTransformers.append(backgroundBlur)
         myVideoTransformers.append(myCustomTransformer)
 
         // Set video transformers to publisher video stream
